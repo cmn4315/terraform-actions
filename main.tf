@@ -9,6 +9,15 @@ variable "key_name" {
     sensitive = true
   }
 
+terraform {
+  backend "s3" {
+    bucket = "cmn4315-terraform-bucket-1” # S3 bucket for state storage
+    key = "prod/terraform.tfstate” # State file path in the bucket
+    region = "us-east-1” # AWS region
+    encrypt=true
+  }
+}
+
 # EC2 Instance
 # Launches an EC2 instance for WordPress and sets up user data.
 
