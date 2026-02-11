@@ -48,7 +48,7 @@ jobs:
       # Show the execution plan when applying
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'Terraform_apply' }}
-        run: terraform plan
+        run: terraform plan -var-file="sensitive_vars.tfvars"
 
       # Apply changes to AWS when applying
       - name: Terraform Apply
