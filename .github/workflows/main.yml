@@ -53,10 +53,10 @@ jobs:
       # Apply changes to AWS when applying
       - name: Terraform Apply
         if: ${{ github.event.inputs.action == 'Terraform_apply' }}
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -var-file="sensitive_vars.tfvars"
 
       # Delete changes to AWS
       - name: Terraform Destroy
         if: ${{ github.event.inputs.action == 'Terraform_destroy' }}
-        run: terraform destroy -auto-approve
+        run: terraform destroy -auto-approve -var-file="sensitive_vars.tfvars"
         
