@@ -8,6 +8,15 @@ locals {
     aws_key = "AWS_KEY_2"   # SSH key pair name for EC2 instance access
 }
 
+terraform {
+  backend "s3" {
+    bucket = "cmn4315-terraform-bucket-1" # S3 bucket for state storage
+    key = "prod/terraform.tfstate" # State file path in the bucket
+    region = "us-east-1" # AWS region
+    encrypt = true
+  }
+}
+
 # Allow HTTP traffic from the internet
 resource "aws_security_group" "allow_http" {
   name        = "allow_http"
