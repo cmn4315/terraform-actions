@@ -11,9 +11,9 @@ variable "key_name" {
 
 terraform {
   backend "s3" {
-    bucket = "cmn4315-terraform-bucket-1” # S3 bucket for state storage
-    key = "prod/terraform.tfstate” # State file path in the bucket
-    region = "us-east-1” # AWS region
+    bucket = "cmn4315-terraform-bucket-1" # S3 bucket for state storage
+    key = "prod/terraform.tfstate" # State file path in the bucket
+    region = "us-east-1" # AWS region
     encrypt=true
   }
 }
